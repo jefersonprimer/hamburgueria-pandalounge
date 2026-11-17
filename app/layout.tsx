@@ -17,10 +17,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   metadataBase: siteUrl,
   title: {
-    default: "Panda lounge | Delivery de Hambúrguers",
-    template: "%s | Panda lounge",
+    default: "Panda Lounge | Cardápio Digital, Peça Online e Promoções.",
+    template: "%s | Panda Lounge",
   },
-  description: "Panda lounge | Peça Online, Cardápio Digital, Preços.",
+  description:
+    "Peça online no Panda Lounge! Confira nosso cardápio digital, explore nossos hambúrgueres, consulte preços e promoções. Encontre também nossos horários de funcionamento e informações de contato. Tudo em um só lugar!",
   verification: {
     google: "iFNvvYLli4pLzw8Ne01U4uBkal2KzUsQdMzQ8Wjcy5M",
   },
