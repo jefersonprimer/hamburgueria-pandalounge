@@ -1,0 +1,83 @@
+@import "tailwindcss";
+
+/* Escala tipográfica padrão para ações e navegação */
+:root {
+  --brand-red: #1C3715;
+  --brand-red-dark: #1E3718;
+  --text-action-mobile: 0.875rem;
+  --text-action-desktop: 1rem;
+  --line-action: 1.25rem;
+}
+
+@layer components {
+  .ui-action {
+    font-size: var(--text-action-mobile);
+    line-height: var(--line-action);
+    font-weight: 400;
+  }
+
+  @media (min-width: 768px) {
+    .ui-action {
+      font-size: var(--text-action-desktop);
+    }
+  }
+}
+
+@keyframes announcement-fade-in {
+  from {
+    opacity: 0;
+    transform: translateY(3px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .animate-\[announcement-fade-in_350ms_ease-out\] {
+    animation: none;
+  }
+}
+
+:root {
+  --background: #1C3715;
+  --foreground: #ffffff;
+}
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-brand-red: var(--brand-red);
+  --color-brand-red-dark: var(--brand-red-dark);
+  --font-sans: var(--font-geist-sans);
+  --font-mono: var(--font-geist-mono);
+}
+
+/* Green brand surfaces use white text for contrast. */
+.bg-brand-red {
+  color: #ffffff;
+}
+
+@media (prefers-color-scheme: dark) {
+  :root {
+    --background: #1C3715;
+    --foreground: #ffffff;
+  }
+}
+
+body {
+  background: var(--background);
+  color: var(--foreground);
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+::selection {
+  background: #1C3715;
+  color: #ffffff;
+}
+
+::-moz-selection {
+  background: #1C3715;
+  color: #ffffff;
+}
