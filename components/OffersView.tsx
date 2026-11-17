@@ -366,7 +366,7 @@ export default function OffersView({ initialProducts = [] }: { initialProducts?:
   const pageItems = buildPageItems(totalPages, safePage);
 
   return (
-    <main className="flex-1 bg-white">
+    <main className="flex-1">
       <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
         <nav
           aria-label="Breadcrumb"
@@ -402,7 +402,7 @@ export default function OffersView({ initialProducts = [] }: { initialProducts?:
           <button
             type="button"
             onClick={() => setFiltersOpen((previous) => !previous)}
-            className="inline-flex items-center gap-2 self-start rounded-full border border-gray-200 bg-white px-4 py-2 text-sm font-semibold text-gray-700 shadow-sm transition hover:border-[#1E3718]/40 hover:text-[#1E3718] lg:hidden"
+            className="ui-action inline-flex items-center gap-2 self-start rounded-full border border-gray-200 bg-white px-4 py-2 text-gray-700 shadow-sm transition hover:border-brand-red-dark/40 hover:text-brand-red-dark lg:hidden"
           >
             {filtersOpen ? (
               <X className="h-4 w-4" />
@@ -411,7 +411,7 @@ export default function OffersView({ initialProducts = [] }: { initialProducts?:
             )}
             Filtros
             {activeFilters > 0 && (
-              <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-[#1E3718] px-1 text-[11px] font-bold text-white">
+              <span className="flex h-5 min-w-5 items-center justify-center rounded-full bg-brand-red-dark px-1 text-[11px] font-bold text-white">
                 {activeFilters}
               </span>
             )}
@@ -444,7 +444,7 @@ export default function OffersView({ initialProducts = [] }: { initialProducts?:
                     type="button"
                     onClick={clearFilters}
                     disabled={!isFiltering}
-                    className="inline-flex items-center gap-1 text-xs font-semibold text-[#1E3718] transition hover:text-[#1C3715] disabled:cursor-not-allowed disabled:text-gray-300"
+                    className="ui-action inline-flex items-center gap-1 text-brand-red-dark transition hover:text-brand-red disabled:cursor-not-allowed disabled:text-gray-300"
                   >
                     <RotateCcw className="h-3.5 w-3.5" />
                     Limpar
@@ -482,8 +482,8 @@ export default function OffersView({ initialProducts = [] }: { initialProducts?:
                         onClick={() => selectDepartment(null)}
                         className={`flex w-full items-center justify-between rounded-lg px-2.5 py-1.5 text-left text-sm transition-colors ${
                           !selectedDepartment
-                            ? "bg-[#1E3718] font-semibold text-white"
-                            : "text-gray-600 hover:bg-gray-50 hover:text-[#1E3718]"
+                            ? "bg-brand-red-dark font-semibold text-white"
+                            : "text-gray-600 hover:bg-gray-50 hover:text-brand-red-dark"
                         }`}
                       >
                         Todas as ofertas
@@ -496,8 +496,8 @@ export default function OffersView({ initialProducts = [] }: { initialProducts?:
                           onClick={() => selectDepartment(department)}
                           className={`flex w-full items-center justify-between rounded-lg px-2.5 py-1.5 text-left text-sm transition-colors ${
                             selectedDepartment === department
-                              ? "bg-[#1E3718] font-semibold text-white"
-                              : "text-gray-600 hover:bg-gray-50 hover:text-[#1E3718]"
+                              ? "bg-brand-red-dark font-semibold text-white"
+                              : "text-gray-600 hover:bg-gray-50 hover:text-brand-red-dark"
                           }`}
                         >
                           <span className="truncate">{department}</span>
@@ -531,8 +531,8 @@ export default function OffersView({ initialProducts = [] }: { initialProducts?:
                           onClick={() => selectCategory(null)}
                           className={`flex w-full items-center justify-between rounded-lg px-2.5 py-1.5 text-left text-sm transition-colors ${
                             !selectedCategory
-                              ? "bg-[#1E3718] font-semibold text-white"
-                              : "text-gray-600 hover:bg-gray-50 hover:text-[#1E3718]"
+                              ? "bg-brand-red-dark font-semibold text-white"
+                              : "text-gray-600 hover:bg-gray-50 hover:text-brand-red-dark"
                           }`}
                         >
                           Todas as categorias
@@ -545,8 +545,8 @@ export default function OffersView({ initialProducts = [] }: { initialProducts?:
                             onClick={() => selectCategory(category)}
                             className={`flex w-full items-center justify-between rounded-lg px-2.5 py-1.5 text-left text-sm transition-colors ${
                               selectedCategory === category
-                                ? "bg-[#1E3718] font-semibold text-white"
-                                : "text-gray-600 hover:bg-gray-50 hover:text-[#1E3718]"
+                                ? "bg-brand-red-dark font-semibold text-white"
+                                : "text-gray-600 hover:bg-gray-50 hover:text-brand-red-dark"
                             }`}
                           >
                             <span className="truncate">{category}</span>
@@ -582,7 +582,7 @@ export default function OffersView({ initialProducts = [] }: { initialProducts?:
                               type="checkbox"
                               checked={selectedBrands.includes(brand)}
                               onChange={() => toggleBrand(brand)}
-                              className="h-4 w-4 shrink-0 rounded border-gray-300 accent-[#1E3718]"
+                        className="h-4 w-4 shrink-0 rounded border-gray-300 accent-brand-red-dark"
                             />
                             <span className="truncate">{brand}</span>
                           </label>
@@ -621,7 +621,7 @@ export default function OffersView({ initialProducts = [] }: { initialProducts?:
                           priceBounds ? `R$ ${priceBounds.min}` : "Mín."
                         }
                         aria-label="Preço mínimo"
-                        className="w-full min-w-0 rounded-lg border border-gray-200 bg-gray-50 px-2.5 py-2 text-sm text-gray-900 transition focus:border-transparent focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1E3718]"
+                        className="w-full min-w-0 rounded-lg border border-gray-200 bg-gray-50 px-2.5 py-2 text-sm text-gray-900 transition focus:border-transparent focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-red"
                       />
                       <span className="text-xs text-gray-400">até</span>
                       <input
@@ -635,7 +635,7 @@ export default function OffersView({ initialProducts = [] }: { initialProducts?:
                           priceBounds ? `R$ ${priceBounds.max}` : "Máx."
                         }
                         aria-label="Preço máximo"
-                        className="w-full min-w-0 rounded-lg border border-gray-200 bg-gray-50 px-2.5 py-2 text-sm text-gray-900 transition focus:border-transparent focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#1E3718]"
+                        className="w-full min-w-0 rounded-lg border border-gray-200 bg-gray-50 px-2.5 py-2 text-sm text-gray-900 transition focus:border-transparent focus:bg-white focus:outline-none focus:ring-2 focus:ring-brand-red"
                       />
                     </div>
                     {priceBounds && (
@@ -671,8 +671,8 @@ export default function OffersView({ initialProducts = [] }: { initialProducts?:
                         onClick={() => updateMinDiscount(option.value)}
                         className={`rounded-lg border px-2 py-1.5 text-xs font-semibold transition ${
                           minDiscount === option.value
-                            ? "border-[#1E3718] bg-[#1E3718] text-white"
-                            : "border-gray-200 text-gray-600 hover:border-[#1E3718]/40 hover:text-[#1E3718]"
+                            ? "border-brand-red-dark bg-brand-red-dark text-white"
+                            : "border-gray-200 text-gray-600 hover:border-brand-red-dark/40 hover:text-brand-red-dark"
                         }`}
                       >
                         {option.label}
@@ -705,7 +705,7 @@ export default function OffersView({ initialProducts = [] }: { initialProducts?:
                         onChange={(event) =>
                           updateStockFilter(event.target.checked)
                         }
-                        className="h-4 w-4 shrink-0 rounded border-gray-300 accent-[#1E3718]"
+                              className="h-4 w-4 shrink-0 rounded border-gray-300 accent-brand-red-dark"
                       />
                       <span>Somente em estoque</span>
                     </label>
@@ -748,7 +748,7 @@ export default function OffersView({ initialProducts = [] }: { initialProducts?:
                   <button
                     type="button"
                     onClick={clearFilters}
-                    className="mt-5 inline-flex items-center gap-2 rounded-full bg-[#1E3718] px-4 py-2 text-sm font-semibold text-white transition hover:bg-[#1C3715]"
+                    className="ui-action mt-5 inline-flex items-center gap-2 rounded-full bg-brand-red-dark px-4 py-2 text-white transition hover:bg-brand-red"
                   >
                     <RotateCcw className="h-4 w-4" />
                     Limpar filtros
@@ -773,7 +773,7 @@ export default function OffersView({ initialProducts = [] }: { initialProducts?:
                       onClick={() => goToPage(safePage - 1)}
                       disabled={safePage === 1}
                       aria-label="Página anterior"
-                      className="flex h-9 w-9 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-600 transition hover:border-[#1E3718]/40 hover:text-[#1E3718] disabled:cursor-not-allowed disabled:text-gray-300"
+                      className="flex h-9 w-9 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-600 transition hover:border-brand-red-dark/40 hover:text-brand-red-dark disabled:cursor-not-allowed disabled:text-gray-300"
                     >
                       <ChevronLeft className="h-4 w-4" />
                     </button>
@@ -787,8 +787,8 @@ export default function OffersView({ initialProducts = [] }: { initialProducts?:
                           aria-current={item === safePage ? "page" : undefined}
                           className={`flex h-9 min-w-9 items-center justify-center rounded-lg border px-2 text-sm font-semibold transition ${
                             item === safePage
-                              ? "border-[#1E3718] bg-[#1E3718] text-white"
-                              : "border-gray-200 bg-white text-gray-600 hover:border-[#1E3718]/40 hover:text-[#1E3718]"
+                              ? "border-brand-red-dark bg-brand-red-dark text-white"
+                              : "border-gray-200 bg-white text-gray-600 hover:border-brand-red-dark/40 hover:text-brand-red-dark"
                           }`}
                         >
                           {item}
@@ -809,7 +809,7 @@ export default function OffersView({ initialProducts = [] }: { initialProducts?:
                       onClick={() => goToPage(safePage + 1)}
                       disabled={safePage === totalPages}
                       aria-label="Próxima página"
-                      className="flex h-9 w-9 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-600 transition hover:border-[#1E3718]/40 hover:text-[#1E3718] disabled:cursor-not-allowed disabled:text-gray-300"
+                      className="flex h-9 w-9 items-center justify-center rounded-lg border border-gray-200 bg-white text-gray-600 transition hover:border-brand-red-dark/40 hover:text-brand-red-dark disabled:cursor-not-allowed disabled:text-gray-300"
                     >
                       <ChevronRight className="h-4 w-4" />
                     </button>
