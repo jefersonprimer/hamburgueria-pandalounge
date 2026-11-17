@@ -319,13 +319,13 @@ export default function ProductDetail({
 
   if (notFound || !product) {
     return (
-      <main className="flex-1 bg-white">
+      <main className="flex-1">
         <div className="mx-auto flex max-w-7xl flex-col items-center px-4 py-20 text-center sm:px-6 lg:px-8">
-          <Package className="h-12 w-12 text-gray-300" aria-hidden="true" />
-          <h1 className="mt-4 text-2xl font-bold text-gray-900 md:text-3xl">
+          <Package className="h-12 w-12 text-white/50" aria-hidden="true" />
+          <h1 className="mt-4 text-2xl font-bold text-white md:text-3xl">
             Produto não encontrado
           </h1>
-          <p className="mt-1 text-sm text-gray-500">
+          <p className="mt-1 text-sm text-white/75">
             O produto que você procura pode ter sido removido ou não existe.
           </p>
           <Link
@@ -367,7 +367,9 @@ export default function ProductDetail({
   const installments = product.installments ?? 3;
   const hasInstallment = installmentPrice !== null && installments > 1;
   const inStock = product.stock > 0;
-  const quantity = items.filter((item) => item.product.id === product.id).reduce((sum, item) => sum + item.quantity, 0);
+  const quantity = items
+    .filter((item) => item.product.id === product.id)
+    .reduce((sum, item) => sum + item.quantity, 0);
 
   const related =
     relatedProducts && relatedProducts.department === product.department
@@ -387,21 +389,21 @@ export default function ProductDetail({
   };
 
   return (
-    <main className="flex-1 bg-white">
+    <main className="flex-1">
       <div className="mx-auto max-w-7xl px-4 py-6 sm:px-6 lg:px-8">
-        <nav className="mb-6 hidden items-center gap-1.5 text-xs text-gray-500 lg:flex">
+        <nav className="mb-6 hidden items-center gap-1.5 text-xs text-white/70 lg:flex">
           <Link
             href="/"
-            className="transition-colors hover:text-brand-red-dark hover:underline"
+            className="transition-colors hover:text-white hover:underline"
           >
             Início
           </Link>
           {product.department && (
             <>
-              <ChevronRight className="h-3.5 w-3.5 text-gray-300" />
+              <ChevronRight className="h-3.5 w-3.5 text-white/40" />
               <Link
                 href={departmentPath(product.department)}
-                className="truncate transition-colors hover:text-brand-red-dark hover:underline"
+                className="truncate transition-colors hover:text-white hover:underline"
               >
                 {product.department}
               </Link>
@@ -409,10 +411,10 @@ export default function ProductDetail({
           )}
           {product.department && product.category && (
             <>
-              <ChevronRight className="h-3.5 w-3.5 shrink-0 text-gray-300" />
+              <ChevronRight className="h-3.5 w-3.5 shrink-0 text-white/40" />
               <Link
                 href={categoryPath(product.department, product.category)}
-                className="truncate transition-colors hover:text-brand-red-dark hover:underline"
+                className="truncate transition-colors hover:text-white hover:underline"
               >
                 {product.category}
               </Link>
@@ -420,17 +422,17 @@ export default function ProductDetail({
           )}
           {product.department && product.category && product.subcategory && (
             <>
-              <ChevronRight className="h-3.5 w-3.5 shrink-0 text-gray-300" />
+              <ChevronRight className="h-3.5 w-3.5 shrink-0 text-white/40" />
               <Link
                 href={`${categoryPath(product.department, product.category)}/${slugify(product.subcategory)}`}
-                className="truncate transition-colors hover:text-brand-red-dark hover:underline"
+                className="truncate transition-colors hover:text-white hover:underline"
               >
                 {product.subcategory}
               </Link>
             </>
           )}
-          <ChevronRight className="h-3.5 w-3.5 text-gray-300" />
-          <span className="truncate text-gray-700">{product.name}</span>
+          <ChevronRight className="h-3.5 w-3.5 text-white/40" />
+          <span className="truncate text-white">{product.name}</span>
         </nav>
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-3">
@@ -581,17 +583,17 @@ export default function ProductDetail({
                 </div>
               )}
 
-              <h1 className="text-2xl font-bold leading-tight tracking-tight text-gray-900 md:text-3xl">
+              <h1 className="text-2xl font-bold leading-tight tracking-tight text-white md:text-3xl">
                 {product.name}
               </h1>
             </div>
 
             {product.brand && (
-              <p className="mt-2 text-sm text-gray-500">
+              <p className="mt-2 text-sm text-white/70">
                 Marca:{" "}
                 <Link
                   href={`/marca/${slugify(product.brand)}`}
-                  className="font-medium text-gray-700 transition-colors hover:text-brand-red-dark hover:underline"
+                  className="font-medium text-white transition-colors hover:text-white/80 hover:underline"
                 >
                   {product.brand}
                 </Link>
@@ -600,7 +602,7 @@ export default function ProductDetail({
 
             {product.description && (
               <div className="mt-6">
-                <p className="mt-2 line-clamp-4 whitespace-pre-line text-sm leading-relaxed text-gray-600 md:text-base">
+                <p className="mt-2 line-clamp-4 whitespace-pre-line text-sm leading-relaxed text-white/85 md:text-base">
                   {product.description}
                 </p>
                 {product.description.length > 180 && (
@@ -612,7 +614,7 @@ export default function ProductDetail({
                         block: "start",
                       })
                     }
-                    className="ui-action mt-2 inline-flex items-center gap-1 text-brand-red-dark transition-colors hover:text-brand-red hover:underline"
+                    className="ui-action mt-2 inline-flex items-center gap-1 text-white transition-colors hover:text-white/80 hover:underline"
                   >
                     Ver mais
                     <ChevronDown className="h-4 w-4" />
@@ -620,7 +622,6 @@ export default function ProductDetail({
                 )}
               </div>
             )}
-
           </div>
 
           <div className="lg:sticky lg:top-24 lg:self-start">
@@ -998,7 +999,7 @@ export default function ProductDetail({
         <section
           ref={detailsRef}
           id="detalhes-completos"
-          className="scroll-mt-24 border-t border-gray-100 bg-gray-50"
+          className="scroll-mt-24 border-t border-white/15 bg-transparent"
         >
           <div className="mx-auto grid max-w-7xl grid-cols-1 gap-6 px-4 py-10 sm:px-6 lg:grid-cols-2 lg:px-8">
             {product.description && (
@@ -1011,7 +1012,6 @@ export default function ProductDetail({
                 </p>
               </div>
             )}
-
           </div>
         </section>
       )}
